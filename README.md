@@ -1,4 +1,4 @@
-# Expirement 1.3
+# Expirement 1.2
 ### Student Name: Nambram Helio 	 	           UID: 22MCA20317 
 
  **TITLE** : Store the data obtained in the experiment 1.1 in file and use that file in other program. <br>
