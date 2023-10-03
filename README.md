@@ -1,7 +1,5 @@
-Student Name: Nambram Helio 	 	           UID: 22MCA20317 
-Branch: MCA(UIC)  	 	 	                   Section/Group: 2-A 
-Semester: 3rd 	 	 	 	 	 	                 Date of Performance: 14-09-2023 
-Subject Name: Back End Technologies 	 	   Subject Code: 22CAH-706 
- 
-Q. Create a Signup page and store the inputted data by user in file. 
-Aim/Overview of the practical:  To store the inputted data by user in file. 
+# Expirement 1.3
+### Student Name: Nambram Helio 	 	           UID: 22MCA20317 
+
+ TITLE : Store the data obtained in the experiment 1.1 in file and use that file in other program. 
+Aim/Overview of the practical:  To fetch data from one file to another. 
