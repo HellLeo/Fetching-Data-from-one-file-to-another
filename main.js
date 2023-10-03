@@ -1,13 +1,22 @@
-var express = require('express'); 
-var fs = require('fs'); var app = express(); app.get('/index.html', 
-app.get('/pg', function (req, res) 
-{ const first_name = req.query['first_name']; const last_name = req.query['last_name']; const user_name = req.query['user_name']; const password = req.query['password']; const htmlContent = `<p>first_name: ${first_name}</p><p>last_name: ${last_name}</p ><p>user_name: 
-${user_name}</p><p>password: ${password}</p>`; fs.writeFile('file.html', htmlContent, function (err) { if (err) { console.error('Error writing file:', err); res.status(500).send('Error writing file'); 
-} else { 
-console.log('File created and content written successfully'); res.send(htmlContent); 
+const fs = require('fs'); const readline = require('readline'); const rl = readline.createInterface({  input: process.stdin,  output: process.stdout 
+}); const employees = []; // ... Rest of the code ... 
+function calculateSalary(wage, hours) {  return wage * hours; 
 } 
-}); 
-}) 
-); 
-var server = app.listen(8000, function () { var host = server.address().address; var port = server.address().port; 
-console.log("Example app listening at http://%s:%s", host, port); }); 
+function displayEmployeeList() {  console.log('Employee List:');  employees.forEach((employee, index) => {  console.log(`${index + 1}. ${employee.name} - Salary:  
+$${employee.salary.toFixed(2)}`); 
+ }); } 
+function addEmployee() {  rl.question('Enter employee name: ', (name) => {  rl.question('Enter hourly wage: ', (hourlyWage) => {  rl.question('Enter hours worked: ', (hoursWorked) => {  const wage = parseFloat(hourlyWage);  const hours = parseFloat(hoursWorked);  const salary = calculateSalary(wage, hours);  employees.push({ name, salary });  console.log(`Employee ${name} added.`);  displayEmployeeList(); 
+ rl.question('Do you want to add another employee? (yes/no): ', (answer)  
+=> { 
+ if (answer.toLowerCase() === 'yes') { 
+ addEmployee();  } else { 
+ console.log('Saving data...');  saveToFile(); 
+ console.log('Salary management system closed.');  rl.close(); 
+ } 
+ }); 
+function saveToFile() {  const dataToSave = JSON.stringify(employees, null, 2);  fs.writeFile('employeeData.json', dataToSave, 'utf8', (err) => {  if (err) {  console.error('Error saving data to file:', err); 
+ console.log('Data saved to employeeData.json'); 
+ } 
+ }); 
+} 
+// Start the process by calling addEmployee addEmployee(); 
